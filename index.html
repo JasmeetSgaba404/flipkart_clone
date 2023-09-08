@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FLIPkart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <style>
+        .nav-link {
+            color: cornflowerblue;
+        }
+
+
+
+        .dropdown-menu li {
+            position: relative;
+        }
+
+        .dropdown-menu .dropdown-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: -7px;
+        }
+
+        .dropdown-menu .dropdown-submenu-left {
+            right: 100%;
+            left: auto;
+        }
+
+        .dropdown-menu>li:hover>.dropdown-submenu {
+            display: block;
+        }
+
+        .cl1 {
+            background-color: rgb(0, 0, 57);
+            color: white;
+        }
+
+        .undy {
+            font-size: 12px;
+        }
+
+        .undy:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 767px) {
+            .carousel-inner .carousel-item>div {
+                display: none
+            }
+
+            .carousel-inner .carousel-item>div:first-child {
+                display: block
+            }
+        }
+
+        .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+            display: flex
+        }
+
+        @media (min-width: 768px) {
+
+            .carousel-inner .carousel-item-end.active,
+            .carousel-inner .carousel-item-next {
+                transform: translateX(25%)
+            }
+
+            .carousel-inner .carousel-item-start.active,
+            .carousel-inner .carousel-item-prev {
+                transform: translateX(-25%)
+            }
+        }
+
+        .carousel-inner .carousel-item-end,
+        .carousel-inner .carousel-item-start {
+            transform: translateX(0)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row py-3">
+            <div class="col">
+                <nav class="navbar navbar-expand-md bg-primary fixed-top">
+                    <!-- navbar-expand-md is necessary for the horizontal list -->
+                    <ul class="navbar-nav me-auto list-group">
+                        <li class="ms-5"></li>
+                        <li class="ms-5"></li>
+                        <li class="ms-5"></li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-light ms-5 ps-5 text-center" href="#">
+                                <h3>Flipkart</h3>
+                                <div class="fs-6 ms-5 ps-5" style="margin-top: -2.5rem;">
+
+                                    <a class="nav-link text-light" href="#">Explore
+                                        <div class="text-warning ms-5 ps-2" style="margin-top: -1.5rem;">plus</div>
+                                    </a>
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="ms-5"></li>
+                        <li class="nav-item ms-2 pt-4">
+                            <form class="form-inline">
+                                <input class="form-class mr-sm-2 me-1" type="search" style="width: 300px;"
+                                    placeholder="Search for products, brands and more" aria-label="Search">
+                                <span><i class="fa-solid fa-magnifying-glass fa-sm" style="color: white;"></i></span>
+                            </form>
+                        </li>
+                        <li class="nav-item ms-4 pt-3">
+                            <button type="button" class="btn btn-light text-primary"
+                                style="width: 120px;">Login</button>
+                        </li>
+                        <li class="nav-item ms-5 pt-3">
+                            <a class="nav-link text-light" href="#">Become a Seller</a>
+                        </li>
+                        <li class="nav-item dropdown ms-5 pt-3">
+                            <a class="nav-link text-light dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown">More</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Notification Preferences</a>
+                                <a class="dropdown-item" href="#">24x7 Customer Care</a>
+                                <a class="dropdown-item" href="#">Advertise</a>
+                                <a class="dropdown-item" href="#">Download App</a>
+                            </div>
+                        </li>
+                        <li class="nav-item ms-2 pt-3">
+                            <a class="nav-link text-light" href="#">Cart</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pt-5 mt-2">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <!-- Dropdown -->
+                <li class="nav-item dropdown ms-4">
+                    <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink">
+                        <img src="grocery.png" alt="washing" width="80" height="80">
+                        <br> Grocery
+                    </a>
+                </li>
+
+                <!-- li2 -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink">
+                        <img src="phones.webp" alt="phone" width="80" height="80">
+                        <br> Mobiles
+                    </a>
+                </li>
+                <!-- li2 -->
+                <!-- li3 -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="download.jpg" alt="fashion" width="80" height="80">
+                        <br> Fashion
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Men's Top Wear &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Shirts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">T-shirts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Blazer</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Coats</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Kurtas</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Men's Bottom Wear &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Mens' Jeans</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men's Trousers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men's Trackpants</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men's Shorts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men's Dhoti</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Women ethnic &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Sarees</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Kurtas</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Salwaar Kameez</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Ethnic Dresses</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Lehenga Choli</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Women Western &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Tops</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Polo-shirts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Jeans</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Night Dresses</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Tracksuits</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Men Footwear &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Men Sports Shoes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men Casual Shoes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men Sandals Floaters</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men's Formals</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Active Footwear</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Women Footwear &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Sports Shoes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Casual Shoes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Sandals Floaters</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Slippers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Women Sneakers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Watches and Accessories &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Men & Women Watches</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men & Women Sunglasses</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Wallets</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Men & Women Belts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Precious Jewellery</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Bags, Suitcases & Luggage &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Bags and Backpacks</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Suitcases and Trolleys</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">lehnga</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Chunari</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Lootcase</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Kids &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">suits</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">sweaters</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">compass box</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">aloo</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">paneer</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Essentials &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Whiskey</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Rum</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Coke</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Vodka</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Beer</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Winter &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Shirts</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Jammies</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Winter Coat</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Dry Fruits</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Maggi</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- li3 -->
+                <!-- li4 -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="laptop.avif" alt="electric" width="80" height="80">
+                        <br> Electronics
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Audio &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Earphones</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Headphones</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">BoAt</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Airpods</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Soundpeats</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Electronics GST Store &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Cameras & Accessories &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Nikon DS400</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Canon MD3400</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">DSLR 3000</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Instant Cameras</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Camcorders</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Gaming &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Gaming PC</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Gaming Keyboards</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Gaming Mouse</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">X Box X series</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Playstation 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Health & Personal Care &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Toothbrushes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Shavers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Hair Dryers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Hair Straighteners</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Epilators</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Mobile Accessories &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Chargers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Charging Wires</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">covers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">3D covers</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">4D Covers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Power Banks &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">10000 mah</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">20000 mah</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">30000 mah</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">35000 mah</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">40000 mah</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Smart Wearables &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Apple Watch</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Android Watch</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Samsung Watch</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">VR Headsets</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">AR Headsets</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Storage &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Hardrives</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">USB Drives</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">SSD Drives</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">5tb Hardrives</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Compact Discs</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Tablets &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Apple Ipad 5th generation</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Samsung Galaxy Tab S4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Xiaomi Pad 5</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Oppo Tab 7</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Microsoft Surface</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- li4 -->
+                <!-- li5 -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="sofa.jpg" alt="washing" width="80" height="80">
+                        <br> Home & Furniture
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Home Furnishings &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Furniture & Studio &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Living Room Furniture &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Kitchen & Dining &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Bedroom Furniture &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Home Decor &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Work Space Furniture &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- li5 -->
+                <!-- li6 -->
+                <li class="nav-item dropdown ms-3">
+                    <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink">
+                        <img src="washing.webp" alt="washing" width="80" height="80">
+                        <br> Appliances
+                    </a>
+                </li>
+                <!-- li6 -->
+                <!-- li7 -->
+                <li class="nav-item dropdown ms-2">
+                    <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink">
+                        <img src="plane.jpg" alt="plane" width="80" height="80">
+                        <br> Travel
+                    </a>
+                </li>
+                <!-- li7 -->
+                <!-- li8 -->
+                <li class="nav-item dropdown ms-2">
+                    <a class="nav-link text-center" href="#" id="navbarDropdownMenuLink">
+                        <img src="sale.jpg" alt="sale" width="80" height="80">
+                        <br> Top Offers
+                    </a>
+                </li>
+                <!-- li8 -->
+                <!-- li9 -->
+                <li class="nav-item dropdown ms-1">
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="toys.avif" alt="toys" width="80" height="80">
+                        <br> Beauty Toys & More
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Beauty & Personal Care &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Men's Grooming &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Food & Drinks &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Nutrition & Healthcare &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Baby Care &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Toys & Schoole Supplies &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Sports & Fitness &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Books &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- li9 -->
+                <!-- li10 -->
+                <li class="nav-item dropstart">
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="bike.webp" alt="bike" width="80" height="80">
+                        <br> Two Wheelers
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">Petrol Bikes&raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Diesel Bikes &raquo;</a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Quad Bikes &raquo;
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 1</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 2</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 3</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 4</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Submenu item 5</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- li10 -->
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="1500">
+                <img src="ban1.jpg" class="d-block w-100" style="height: 400px;" alt="img1">
+            </div>
+            <div class="carousel-item" data-bs-interval="1500">
+                <img src="ban2.jpg" class="d-block w-100" style="height: 400px;" alt="img2">
+            </div>
+            <div class="carousel-item" data-bs-interval="1500">
+                <img src="ban3.jpg" class="d-block w-100" style="height: 400px;" alt="img3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row py-3 ms-3">
+
+
+            <div class="card" style="width: 12rem;">
+                <div class="card-body mt-3  text-center">
+                    <h5 class="card-title">Best of<br>Electronics</h5>
+                    <a href="#" class="btn btn-primary mt-2 mb-3">VIEW ALL</a>
+                    <img src="Electronics.png" alt="electronics" width="150" height="150">
+                </div>
+            </div>
+            <div class="col-8 my-5 justify-content-center">
+                <div id="recipeCarousel" class="carousel carousel1 slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item item1 active">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="camera.png"
+                                            alt="img1" width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item1">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="trimmer.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item1">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="monitor.avif"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item1">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="printer.png"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 4</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item1">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="dryer.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 5</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item1">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="projector.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Slide 6</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                        data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
+                        class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                        data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                    <img src="carimg.webp" class="my-auto" alt="electronics" width="auto" height="300">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row py-3 ms-3">
+
+
+            <div class="card" style="width: 12rem;">
+                <div class="card-body mt-3  text-center">
+                    <h5 class="card-title">Beauty, Food,<br>Toys & more</h5>
+                    <a href="#" class="btn btn-primary mt-2 mb-3">VIEW ALL</a>
+                    <img src="toys.avif" alt="toys" width="150" height="150">
+                </div>
+            </div>
+            <div class="col-10 my-5 justify-content-center">
+                <div id="recipeCarousel-1" class="carousel carousel2 slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item item2 active">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy1.jpg"
+                                            alt="img1" width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Vegeto</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item2">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy2.png"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Toy-Car</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item2">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy3.png"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Teddy</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item2">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy4.avif"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Batman</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item2">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy5.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Zoro</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item2">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="toy6.jpg"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Goku</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel-1" role="button"
+                        data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
+                        class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel-1" role="button"
+                        data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row py-3 ms-3">
+
+
+            <div class="card" style="width: 12rem;">
+                <div class="card-body mt-5  text-center">
+                    <h5 class="card-title">Back to<br>Campus Deals</h5>
+                    <a href="#" class="btn btn-primary mt-2 mb-3 mt-4">VIEW ALL</a>
+                </div>
+            </div>
+            <div class="col-10 my-5 justify-content-center">
+                <div id="recipeCarousel-2" class="carousel carousel3 slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item item3 active">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus1.avif"
+                                            alt="img1" width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Backpacks</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item3">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus2.jpg"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Power Banks</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item3">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus3.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">T-shirts</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item3">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus4.avif"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Earpods</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item3">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus5.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">SmartWatches</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item item3">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-img"> <img src="campus6.webp"
+                                        width="auto" height="200"> </div>
+                                    <div class="card-img-overlay">Sunglasses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel-2" role="button"
+                        data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
+                        class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel-2" role="button"
+                        data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid cl1">
+        <div class="row py3 mt-2">
+
+            <div class="col-2">
+                About<br><br>
+                <div class="undy">
+                    Contact Us<br>
+                    About Us<br>
+                    Careers<br>
+                    Flipkart Stories<br>
+                    Press<br>
+                    Flipkart Wholesale<br>
+                    Coporate Information<br>
+                </div>
+            </div>
+            <div class="col-2">
+                Help<br><br>
+                <div class="undy">
+                    Payments<br>
+                    Shipping<br>
+                    Cancellations & Returns<br>
+                    FAQ <br>
+                    Report Infringement<br>
+                </div>
+            </div>
+            <div class="col-2">
+                Consumer Policy<br><br>
+                <div class="undy">
+                    Return Policy<br>
+                    Terms of Use<br>
+                    Security<br>
+                    Privacy<br>
+                    Sitemap<br>
+                    Grievance Redressal<br>
+                    EPR Compliance<br>
+                </div>
+            </div>
+            <div class="col-1">
+                Social<br><br>
+                <div class="undy">
+                    Facebook<br>
+                    Twitter<br>
+                    YouTube<br>
+                </div>
+            </div>
+            <div class="col-2">
+                Mail Us:<br><br>
+                <div class="undy">
+                    Flipkart Internet Private Limited,<br>
+                    Buildings Alyssa, Begonia &<br>
+                    Clove Embassy Tech Village,<br>
+                    Outer Ring Road, Deverabeesanahalli Village,<br>
+                    Bengaluru, 560103,<br>
+                    Karnataka, India<br>
+                </div>
+            </div>
+            <div class="col-3">
+                Registered Office Address:<br><br>
+                <div class="undy">
+                    Flipkart Internet Private Limited,<br>
+                    Buildings Alyssa, Begonia &<br>
+                    Clove Embassy Tech Village,<br>
+                    Outer Ring Road, Deverabeesanahalli Village,<br>
+                    Bengaluru, 560103,<br>
+                    Karnataka, India<br>
+                    CIN : U51109KA2012PTC066107<br>
+                    Telephone: 044-45614700
+                </div>
+
+            </div>
+            <div class="row py-3">
+                <div class="col-2 ms-3">
+                    <i class="fa-solid fa-briefcase fa-sm" style="color: #fec700;"></i>
+                    &nbsp;Become a Seller
+                </div>
+                <div class="col-2 ms-1">
+                    <i class="fa-solid fa-ticket fa-sm" style="color: #fec700;"></i>
+                    &nbsp;Advertise
+                </div>
+                <div class="col-2 ms-1">
+                    <i class="fa-solid fa-gift fa-sm" style="color: #fec700;"></i>
+                    &nbsp;Gift Cards
+                </div>
+                <div class="col-2 ms-1">
+                    <i class="fa-solid fa-circle-question fa-sm" style="color: #fec700;"></i>
+                    &nbsp;Help Center
+                </div>
+                <div class="col-3 ms-1">
+                    &copy; 2007-2023 Flipkart.com
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            let items = document.querySelectorAll('.carousel1 .item1')
+    
+            items.forEach((el) => {
+                const minPerSlide = 4
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
+                    if (!next) {
+                        // wrap carousel by using first child
+                        next = items[0]
+                    }
+                    let cloneChild = next.cloneNode(true)
+                    el.appendChild(cloneChild.children[0])
+                    next = next.nextElementSibling
+                }
+            })
+        </script>
+
+<script>
+    let items1 = document.querySelectorAll('.carousel2 .item2')
+
+    items1.forEach((el) => {
+        const minPerSlide = 4
+        let next1 = el.nextElementSibling
+        for (var i = 1; i < minPerSlide; i++) {
+            if (!next1) {
+                // wrap carousel by using first child
+                next1 = items1[0]
+            }
+            let cloneChild = next1.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next1.nextElementSibling
+        }
+    })
+</script>
+
+<script>
+    let items2 = document.querySelectorAll('.carousel3 .item3')
+
+    items2.forEach((el) => {
+        const minPerSlide = 4
+        let next2 = el.nextElementSibling
+        for (var i = 1; i < minPerSlide; i++) {
+            if (!next2) {
+                // wrap carousel by using first child
+                next2 = items2[0]
+            }
+            let cloneChild = next2.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next2.nextElementSibling
+        }
+    })
+</script>
+
+</body>
+
+</html>
